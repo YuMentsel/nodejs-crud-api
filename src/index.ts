@@ -13,7 +13,7 @@ const PORT: number = Number(
 
 const data: User[] = [];
 
-const server = createServer((req: IncomingMessage, res: ServerResponse) =>
+export const server = createServer((req: IncomingMessage, res: ServerResponse) =>
   customServer(req, res, data),
 );
 
