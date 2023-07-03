@@ -1,8 +1,7 @@
 {
   "watch": ["src"],
-  "ext": "ts",
-  "exec": "ts-node src/index.ts",
-  "ignore": ["*.test.ts", ".git", "node_modules", "dist"],
+  "ext": ".ts,",
+  "exec": "ts-node ./src/index.ts",
   "delay": "3",
   "execMap": {
     "ts": "ts-node-esm"
