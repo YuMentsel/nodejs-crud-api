@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "CommonJS",
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "module": "ESNext",
+    "sourceMap": true,
     "baseUrl": "src",
     "outDir": "dist",
     "strict": true,
@@ -14,7 +16,8 @@
     "skipLibCheck": true
   },
   "ts-node": {
-    "esm": true
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules"]
