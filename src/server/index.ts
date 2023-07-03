@@ -1,4 +1,5 @@
 import { IncomingMessage, ServerResponse } from 'node:http';
+import cluster from 'node:cluster';
 import {
   getUsers,
   createUser,
@@ -7,12 +8,15 @@ import {
   sendResponse,
   sendErrorResponse,
 } from '../handlers';
+import { isBalancer } from '../utils';
 import { User } from '../types/interfaces';
 import { ErrorMessages, Methods, StatusCodes } from '../types/enums';
 
-const data: User[] = [];
+export const customServer = async (req: IncomingMessage, res: ServerResponse, data: User[]) => {
+  if (isBalancer() && cluster.isWorker) {
+    console.log(`${req.method}. Worker ${process.pid} handles request`);
+  }
 
-export const customServer = () => async (req: IncomingMessage, res: ServerResponse) => {
   const { method, url } = req;
   console.log('Method:', method, 'Url:', url);
 

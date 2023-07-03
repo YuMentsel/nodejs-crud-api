@@ -17,3 +17,8 @@ export const getRequestBody = async (req: IncomingMessage, res: ServerResponse):
       });
   });
 };
+
+export const isBalancer = () => {
+  const arg = process.argv.slice(2).find((el) => el.startsWith('--'));
+  return arg === '--multi';
+};

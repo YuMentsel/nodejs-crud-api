@@ -7,6 +7,7 @@
   "scripts": {
     "start:dev": "nodemon",
     "start:prod": "npm run build && node ./dist/bundle.cjs",
+    "start:multi": "nodemon --multi",
     "build": "webpack"
   },
   "repository": {
